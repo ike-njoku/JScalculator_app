@@ -1,0 +1,92 @@
+* {
+    font-weight: bold;
+    font-size: large;
+}
+
+
+/* general styles for all buttons */
+
+button {
+    cursor: pointer;
+    outline: none;
+}
+
+
+/* body --- remove padding and margin */
+
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+
+/* the calculator container */
+
+.container {
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+}
+
+
+/* the screen / output display */
+
+.output {
+    padding: 1em;
+    background-color: aliceblue;
+}
+
+.keypad {
+    /* keypad */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "spkeys spkeys spkeys spkeys" "numkeys numkeys  numkeys opkeys";
+}
+
+.spkeys {
+    /* special keys ( clear, del, root,expontiation etc) */
+    grid-area: spkeys;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.numkeys {
+    /* numbers (1,2,3,4 etc) */
+    grid-area: numkeys;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+/* numkeys buttons */
+
+.numkeys button {
+    background-color: darkorange;
+    padding: 2em;
+    border: solid 2px orangered;
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+.span-two-h {
+    grid-row: span 2;
+}
+
+
+/* ------------------ */
+
+.opkeys {
+    /* operators (+,-, x etc) */
+    grid-area: opkeys;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.opkeys button,
+.spkeys button {
+    background-color: orangered;
+    border: solid 2px rgb(255, 115, 0);
+}

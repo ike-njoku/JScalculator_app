@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="output">
+            <div data-prevoperand class="prevoperand"></div>
+            <div data-currentoperand class="currentoperand"></div>
+        </div>
+
+        <!-- container for keys -->
+        <div class="keypad">
+            <!-- special characters(cear screen ,del etc)  -->
+            <div class="spkeys">
+                <button data-clear class="span-two">clear</button>
+                <button value="hello world" data-delete>del</button>
+                <button>del</button>
+                <button>&Sqrt;</button>
+                <button>del</button>
+
+
+            </div>
+
+
+            <!-- numeric keys -->
+            <div class="numkeys">
+                <button data-numkeys value="1">1</button>
+                <button data-numkeys value="2">2</button>
+                <button data-numkeys value="3">3</button>
+                <button data-numkeys value="4">4</button>
+                <button data-numkeys value="5">5</button>
+                <button data-numkeys value="6">6</button>
+                <button data-numkeys value="7">7</button>
+                <button data-numkeys value="8">8</button>
+                <button data-numkeys value="9">9</button>
+                <button data-numkeys value=".">.</button>
+                <button data-numkeys value="0" class="span-two">0</button>
+            </div>
+
+            <!-- operator keys (+,-,* etc)  -->
+            <div class="opkeys">
+                <button value="+" data-opkeys>&plus;</button>
+                <button value="-" data-opkeys>&minus;</button>
+                <button value="*" data-opkeys>&times;</button>
+                <button value="/" data-opkeys>&divide;</button>
+                <button value="=" data-opkeys class="span-two-h">&equals;</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+
+<script src="calculator.js"></script>
+
+</html>
