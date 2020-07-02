@@ -1,6 +1,7 @@
 * {
     font-weight: bold;
     font-size: large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 
@@ -33,8 +34,23 @@ body {
 /* the screen / output display */
 
 .output {
-    padding: 1em;
+    padding: 0.5em;
     background-color: aliceblue;
+}
+
+
+/* the current operand */
+
+.currentoperand {
+    font-size: 80px;
+}
+
+
+/* previous OPerand */
+
+.prevoperand {
+    text-align: right;
+    font-size: 30px;
 }
 
 .keypad {
