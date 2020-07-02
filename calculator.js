@@ -51,11 +51,12 @@ class Calculator {
 
         // check if the key added is the decimal point
         // ensure that the number added can only have one decimal point
-        if (this.currentOperand.innerHTML.indexOf('.') == true && clickedKey == '.') return;
+        if (this.currentOperand.innerHTML.includes('.') == true && clickedKey == '.') return;
+
 
 
         // the clickedKey parameter is the numkey.value generated when each key is clicked
-        // it is added/appended/attache (as a string) to the current value of the currentOperand.innerHTML
+        // it is added/appended/attached (as a string) to the current value of the currentOperand.innerHTML
         clickedKey = currentOperand.innerHTML + clickedKey;
 
         // update the display after attaching/appending numbers
@@ -71,9 +72,28 @@ class Calculator {
     }
 
     // updatePreviousOperand
-    updatePreviousOperand(operator) {
+    updatePreviousOperand() {
         // if there is an operation that has not been computed
         if (this.selectOperator) {
+
+            // negate an operand( eg: typing in '-1' ) ====> check if the operator that was pressed
+            //  is "-" and if he previous operand is empty. if true,attach the negation symbol to currentOperand
+            if (this.operator == '-' && this.prevOperand.innerHTML == '') {
+                // attach the negation symbol to the display (currentOperand)
+                this.attachNumber(this.operator);
+                // reset the operator to get ready for its next input
+                this.operator = '';
+
+                // clear the currentOperand , getting it ready to render its new value
+                this.currentOperand.innerHMTL = '';
+
+                // render  the display
+                this.prevOperand.innerHTML = this.currentOperand.innerHMTL;
+
+                return;
+
+            }
+
             // move  the value of the current operand to the previous operand
             this.prevOperand.innerHTML = `${this.currentOperand.innerHTML} ${this.operator}`;
             // clear  the currentOperand and prepare it to receive next imput
@@ -96,6 +116,8 @@ class Calculator {
 
         // select an operator
         this.operator = operator;
+
+
 
 
     }
