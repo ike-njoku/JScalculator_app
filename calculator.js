@@ -48,6 +48,12 @@ class Calculator {
     }
 
     attachNumber(clickedKey) {
+
+        // check if the key added is the decimal point
+        // ensure that the number added can only have one decimal point
+        if (this.currentOperand.innerHTML.indexOf('.') == true && clickedKey == '.') return;
+
+
         // the clickedKey parameter is the numkey.value generated when each key is clicked
         // it is added/appended/attache (as a string) to the current value of the currentOperand.innerHTML
         clickedKey = currentOperand.innerHTML + clickedKey;
