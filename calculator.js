@@ -11,6 +11,8 @@ const del = document.querySelector('[data-delete]');
 const prevOperand = document.querySelector('[data-prevoperand]');
 const currentOperand = document.querySelector('[data-currentoperand]');
 
+// equals to (=)
+const equalKey = document.querySelector('[data-calculate]');
 
 
 
@@ -34,6 +36,7 @@ class Calculator {
     clear() {
         this.currentOperand.innerHTML = '';
         this.prevOperand.innerHTML = '';
+        this.operator = '';
 
     }
 
@@ -62,22 +65,85 @@ class Calculator {
     }
 
     // updatePreviousOperand
-    updatePreviousOperand() {
-        // move  the value of the current operand to the previous operand
-        this.prevOperand.innerHTML = this.currentOperand.innerHTML;
-        // clear  the currentOperand and prepare it to receive next imput
+    updatePreviousOperand(operator) {
+        // if there is an operation that has not been computed
+        if (this.selectOperator) {
+            // move  the value of the current operand to the previous operand
+            this.prevOperand.innerHTML = `${this.currentOperand.innerHTML} ${this.operator}`;
+            // clear  the currentOperand and prepare it to receive next imput
+        }
+
+
+
+
         this.currentOperand.innerHTML = '';
+
+
     }
 
 
     // select operator
     selectOperator(operator) {
-        window.alert(operator);
+        // check if there was a previous input
+        // that has not been computed
+        if (this.operator) this.calculate();
+
+        // select an operator
+        this.operator = operator;
+
 
     }
 
     // calclate
-    calculate() {}
+    calculate() {
+        // perform calculations
+        // slice out the last index of the previous operand (because it is an operator symbol that
+        // cannot be converted to a floatingPoint variable )
+        this.a = parseFloat(this.prevOperand.innerHTML.slice(0, -1));
+        this.b = parseFloat(this.currentOperand.innerHTML);
+
+
+        // use the operator to compute (using switch case)
+        switch (this.operator) {
+            case '+':
+                // addition
+                this.c = this.a + this.b;
+                break;
+
+            case '-':
+                // subtraction
+                this.c = this.a - this.b;
+                break;
+
+            case '*':
+                // multiplication
+                this.c = this.a * this.b;
+                break;
+            case '/':
+                // multiplication
+                this.c = this.a / this.b;
+                break;
+
+            default:
+                return;
+        }
+
+
+
+
+
+
+
+
+        // update the display( currentOperand)
+        this.updateCurrentOperand(this.c);
+        this.operator = '';
+        // this.updatePreviousOperand()
+
+
+
+
+    }
 
 }
 
@@ -114,8 +180,17 @@ opkeys.forEach(opkey => {
     opkey.addEventListener('click', () => {
         // pass the operatorKey value (ie plus of minus etc) as a parameter to the
         // calculator.selectOperator method
+
+
         calculator.selectOperator(opkey.value);
         calculator.updatePreviousOperand();
     });
+
+});
+
+// equals /compute/calculate
+equalKey.addEventListener('click', () => {
+    if (calculator.prevOperand.innerHTML.length && calculator.currentOperand.innerHTML.length) calculator.calculate();
+
 
 });
