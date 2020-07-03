@@ -47,6 +47,7 @@ class Calculator {
         this.updateCurrentOperand(this.currentOperand.innerHTML.slice(0, -1));
     }
 
+
     attachNumber(clickedKey) {
 
         // check if the key added is the decimal point
@@ -73,38 +74,12 @@ class Calculator {
 
     // updatePreviousOperand
     updatePreviousOperand() {
-        // if there is an operation that has not been computed
-        if (this.selectOperator) {
 
-            // negate an operand( eg: typing in '-1' ) ====> check if the operator that was pressed
-            //  is "-" and if he previous operand is empty. if true,attach the negation symbol to currentOperand
-            if (this.operator == '-' && this.prevOperand.innerHTML == '') {
-                // attach the negation symbol to the display (currentOperand)
-                this.attachNumber(this.operator);
-                // reset the operator to get ready for its next input
-                this.operator = '';
-
-                // clear the currentOperand , getting it ready to render its new value
-                this.currentOperand.innerHMTL = '';
-
-                // render  the display
-                this.prevOperand.innerHTML = this.currentOperand.innerHMTL;
-
-                return;
-
-            }
-
-            // move  the value of the current operand to the previous operand
-            this.prevOperand.innerHTML = `${this.currentOperand.innerHTML} ${this.operator}`;
-            // clear  the currentOperand and prepare it to receive next imput
-        }
-
-
-
+        // move  the value of the current operand to the previous operand
+        if (this.operator) this.prevOperand.innerHTML = `${this.currentOperand.innerHTML} ${this.operator}`;
+        // clear  the currentOperand and prepare it to receive next imput
 
         this.currentOperand.innerHTML = '';
-
-
     }
 
 
@@ -116,9 +91,6 @@ class Calculator {
 
         // select an operator
         this.operator = operator;
-
-
-
 
     }
 
@@ -155,12 +127,6 @@ class Calculator {
             default:
                 return;
         }
-
-
-
-
-
-
 
 
         // update the display( currentOperand)
@@ -202,15 +168,21 @@ numkeys.forEach(numkey => {
 });
 
 // operatorKeys (opkeys)
-
 opkeys.forEach(opkey => {
 
     opkey.addEventListener('click', () => {
         // pass the operatorKey value (ie plus of minus etc) as a parameter to the
         // calculator.selectOperator method
 
+        // negate if the first input is a minus sign and there is no previous or current operand
+        if (calculator.currentOperand.innerHTML == '' && calculator.prevOperand.innerHTML == '' && opkey.value == '-') { calculator.attachNumber(opkey.value); return; }
+
+        // if there is no currentOperand, it means theres nothing to compute
+        // so return
+        if (calculator.currentOperand.innerHTML == '') return;
 
         calculator.selectOperator(opkey.value);
+
         calculator.updatePreviousOperand();
     });
 
