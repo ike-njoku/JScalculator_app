@@ -3,7 +3,9 @@
     "version": "0.0.0",
 
     "scripts": {
-        "start": "node calculator.js"
+        "start": "npm start",
+        "heroku-postbuild": "npm build --prod"
+
     },
 
     "engines": {
