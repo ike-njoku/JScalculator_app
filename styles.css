@@ -16,6 +16,7 @@ button {
 /* body --- remove padding and margin */
 
 body {
+    background-color: brown;
     padding: 0px;
     margin: 0px;
 }
@@ -27,22 +28,26 @@ body {
     padding: 5px;
     display: grid;
     grid-template-columns: 1fr;
-    min-height: 100vh;
+    min-height: 98.5vh;
 }
 
 
 /* the screen / output display */
 
 .output {
-    padding: 0.5em;
-    background-color: aliceblue;
+    padding: 1%;
+    background-color: darkgray;
+    word-break: break-all;
 }
 
 
 /* the current operand */
 
 .currentoperand {
+    padding: 1%;
     font-size: 80px;
+    word-wrap: break-all;
+    word-wrap: break-word;
 }
 
 
@@ -51,6 +56,8 @@ body {
 .prevoperand {
     text-align: right;
     font-size: 30px;
+    opacity: 70%;
+    color: black;
 }
 
 .keypad {
@@ -79,7 +86,7 @@ body {
 
 .numkeys button {
     background-color: darkorange;
-    padding: 2em;
+    padding: 1%;
     border: solid 2px orangered;
 }
 
@@ -103,6 +110,32 @@ body {
 
 .opkeys button,
 .spkeys button {
+    padding: 1%;
     background-color: orangered;
     border: solid 2px rgb(255, 115, 0);
+}
+
+button:hover {
+    opacity: 60%;
+}
+
+
+/* media queries */
+
+@media (min-width:400px) {
+    body {
+        background-color: brown;
+    }
+    .container {
+        margin: auto;
+        width: 50%;
+        min-height: 95vh;
+        border: 1px pink solid;
+    }
+}
+
+@media(min-width:600px) {
+    .container {
+        width: 30%;
+    }
 }
