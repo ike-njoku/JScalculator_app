@@ -4,7 +4,8 @@
     "description": "Free for all jscalculator, usable as a web browser extension...",
     "main": "calculator.js",
     "scripts": {
-        "start": "server.js"
+        "start": "server.js",
+        "heroku-postbuild": "ng build --prod"
     },
     "repository": {
         "type": "git",
