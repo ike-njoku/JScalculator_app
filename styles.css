@@ -27,7 +27,6 @@ body {
 .container {
     padding: 5px;
     display: grid;
-    grid-template-columns: 1fr;
     min-height: 98.5vh;
 }
 
@@ -45,7 +44,7 @@ body {
 
 .currentoperand {
     padding: 1%;
-    font-size: 80px;
+    font-size: 70px;
     word-wrap: break-all;
     word-wrap: break-word;
 }
@@ -71,7 +70,7 @@ body {
     /* special keys ( clear, del, root,expontiation etc) */
     grid-area: spkeys;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 .numkeys {

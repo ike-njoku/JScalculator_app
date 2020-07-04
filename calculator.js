@@ -14,6 +14,8 @@ const currentOperand = document.querySelector('[data-currentoperand]');
 // equals to (=)
 const equalKey = document.querySelector('[data-calculate]');
 
+// more button (elipses)
+const more = document.querySelector('[data-more]');
 
 
 
@@ -193,4 +195,8 @@ equalKey.addEventListener('click', () => {
     if (calculator.prevOperand.innerHTML.length && calculator.currentOperand.innerHTML.length) calculator.calculate();
 
 
+});
+
+more.addEventListener('click', () => {
+    window.alert('more functions coming up in subsequent updates ');
 });
