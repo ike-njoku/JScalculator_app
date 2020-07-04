@@ -198,5 +198,5 @@ equalKey.addEventListener('click', () => {
 });
 
 more.addEventListener('click', () => {
-    window.alert('more functions coming up in subsequent updates ');
+    window.alert('more functions coming up in subsequent version  ');
 });

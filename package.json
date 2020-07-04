@@ -1,0 +1,23 @@
+{
+    "name": "JScalculator_app",
+    "version": "1.0.0",
+    "description": "Free for all jscalculator, usable as a web browser extension...",
+    "main": "calculator.js",
+    "scripts": {
+        "start": "server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ike-njoku/JScalculator_app.git"
+    },
+    "keywords": [],
+    "author": "IKE-NJOKU DAVID c <ikenjokudc@gmail.com>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ike-njoku/JScalculator_app/issues"
+    },
+    "homepage": "https://github.com/ike-njoku/JScalculator_app#readme",
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}
