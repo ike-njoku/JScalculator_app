@@ -4,8 +4,8 @@
     "description": "Free for all jscalculator, usable as a web browser extension...",
     "main": "calculator.js",
     "scripts": {
-        "start": "server.js",
-        "heroku-postbuild": "build --prod"
+        "start": "server.js"
+
     },
     "repository": {
         "type": "git",
@@ -20,5 +20,10 @@
     "homepage": "https://github.com/ike-njoku/JScalculator_app#readme",
     "dependencies": {
         "express": "^4.17.1"
+    },
+
+    "engines": {
+        "node": "14.2.0",
+        "npm": "6.14.4"
     }
 }
