@@ -1,0 +1,21 @@
+{
+    "manifest_version": 2,
+    "name": "jscalc",
+    "version": "1.0.0",
+    "description": "calculator extension... new versions coming soon!!! ",
+
+
+    "icons": {
+        "128": "icon128.png"
+
+    },
+
+
+
+    "browser_action": {
+        "default_icon": "icon16.png",
+        "default_popup": "popup.html"
+    },
+
+    "permissions": ["activeTab"]
+}
