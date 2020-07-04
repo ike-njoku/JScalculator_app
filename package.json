@@ -5,7 +5,7 @@
     "main": "calculator.js",
     "scripts": {
         "start": "server.js",
-        "heroku-postbuild": "ng build --prod"
+        "heroku-postbuild": "build --prod"
     },
     "repository": {
         "type": "git",
